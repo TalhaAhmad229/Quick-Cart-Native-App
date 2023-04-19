@@ -6,12 +6,21 @@
  */
 
 import React from 'react';
-import SplashScreen from './src/features/splashScreen';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
+import SplashScreen from './src/features/splashScreen';
+import Home from './src/features/home';
+const Stack = createNativeStackNavigator();
 function App() {
   return (
     <>
-      <SplashScreen />
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="SlashScreen" component={SplashScreen} />
+          <Stack.Screen name="Home" component={Home} />
+        </Stack.Navigator>
+      </NavigationContainer>
     </>
   );
 }

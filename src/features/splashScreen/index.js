@@ -1,8 +1,10 @@
+import {useNavigation} from '@react-navigation/native';
 import React, {useEffect} from 'react';
 import {Image, StyleSheet, View, Animated, Dimensions} from 'react-native';
 
 const SplashScreen = () => {
   const fadeAnim = new Animated.Value(0);
+  const navigation = useNavigation();
 
   useEffect(() => {
     Animated.timing(fadeAnim, {
@@ -10,6 +12,10 @@ const SplashScreen = () => {
       duration: 1000,
       useNativeDriver: true,
     }).start();
+    const timer = setTimeout(() => {
+      navigation.navigate('Home');
+    }, 3000);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
