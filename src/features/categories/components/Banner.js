@@ -5,18 +5,13 @@ import Carousel from 'react-native-snap-carousel';
 const Banner = ({data}) => {
   const renderItem = ({item}) => (
     <View style={styles.item}>
-      <Image
-        source={{
-          uri: item.image,
-        }}
-        style={styles.image}
-      />
+      <Image source={item.image} style={styles.image} />
     </View>
   );
   const containerStyle = {
-    width: '100%',
+    width: '90%',
   };
-  const containerWidth = Dimensions.get('window').width * 1;
+  const containerWidth = Dimensions.get('window').width * 0.9;
   const width = containerWidth;
 
   const activeSlideAlignment = 'start';
@@ -44,12 +39,13 @@ export default Banner;
 
 const styles = StyleSheet.create({
   item: {
+    backgroundColor: 'red',
     alignItems: 'center',
     justifyContent: 'center',
   },
   image: {
-    height: 200,
-    width: '100%',
-    resizeMode: 'stretch',
+    height: 150,
+    width: 150,
+    resizeMode: 'contain',
   },
 });
